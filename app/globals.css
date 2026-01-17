@@ -1,26 +1,132 @@
 @import "tailwindcss";
 
+/* ===== CUSTOM THEME VARIABLES ===== */
 :root {
+  /* Primary: Deep Magenta/Burgundy #7e0b48 */
+  --primary: #7e0b48;
+  --primary-light: #a01560;
+  --primary-dark: #5c0835;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary: Soft Purple/Lavender */
+  --secondary: #9b6dff;
+  --secondary-light: #b794ff;
+  --secondary-dark: #7c4ddf;
+  --secondary-foreground: #ffffff;
+  
+  /* Background & Surface */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a2e;
+  --muted: #f8f9fc;
+  --muted-foreground: #64748b;
+  
+  /* Accent colors for cards */
+  --accent-rose: #fff1f5;
+  --accent-purple: #f5f0ff;
+  --accent-pink: #fdf2f8;
+  
+  /* Border & Ring */
+  --border: #e2e8f0;
+  --ring: #7e0b48;
+  
+  /* Radius */
+  --radius: 0.75rem;
 }
 
+/* ===== TAILWIND THEME EXTENSION ===== */
 @theme inline {
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent-rose: var(--accent-rose);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-pink: var(--accent-pink);
+  
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.gradient-bg-soft {
+  background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-purple) 100%);
+}
+
+.section-padding {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
 }
