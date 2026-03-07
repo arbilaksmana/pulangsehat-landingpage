@@ -41,8 +41,12 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section id="fitur" className="py-24 lg:py-32 bg-primary/5 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <section id="fitur" className="py-24 lg:py-32 bg-gradient-to-b from-white via-primary/[0.04] to-white relative overflow-hidden">
+            {/* Decorative gradient blobs */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/[0.05] rounded-full blur-[150px]" />
+            </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -101,8 +105,8 @@ export default function FeaturesSection() {
                             {/* Phone Mockup - half visible */}
                             <div className="relative w-[85%] max-w-[300px] translate-y-[25%]">
                                 <Image
-                                    src="/assets/fitur scan.png"
-                                    alt="Fitur Scan PulangSehat"
+                                    src="/assets/Report.png"
+                                    alt="Fitur Report PulangSehat"
                                     width={400}
                                     height={800}
                                     className="w-full h-auto object-contain drop-shadow-2xl rounded-t-[2rem]"

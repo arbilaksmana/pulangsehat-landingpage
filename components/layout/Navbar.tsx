@@ -97,7 +97,9 @@ export default function Navbar() {
                         {/* Desktop CTA */}
                         <div className="hidden md:flex items-center">
                             <a
-                                href="#download"
+                                href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className={cn(
                                     "inline-flex items-center gap-2 text-sm font-semibold rounded-full transition-all duration-300",
                                     isScrolled
@@ -163,7 +165,9 @@ export default function Navbar() {
                                 ))}
                                 <div className="pt-2 mt-1 border-t border-slate-100">
                                     <a
-                                        href="#download"
+                                        href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center justify-center gap-2 w-full px-5 py-3 mt-2 bg-primary text-white font-semibold rounded-xl text-[15px]"
                                     >

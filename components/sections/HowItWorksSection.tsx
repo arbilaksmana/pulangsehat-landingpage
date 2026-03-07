@@ -18,14 +18,14 @@ const steps = [
         title: "Undang Keluarga",
         description:
             "Tambahkan anggota keluarga ke dalam akun pasien. Semua bisa memantau dan menerima notifikasi bersama secara real-time.",
-        image: "/assets/home.png",
+        image: "/assets/Family Sync.png",
     },
     {
         icon: CheckCircle,
         title: "Pantau & Tenang",
         description:
             "Terima notifikasi real-time. Pastikan orang tua minum obat tepat waktu. Jalani aktivitas tanpa cemas setiap hari.",
-        image: "/assets/splash screen.png",
+        image: "/assets/riwayat caregiver.png",
     },
 ];
 
@@ -65,10 +65,10 @@ export default function HowItWorksSection() {
                             <div
                                 key={index}
                                 className={`rounded-3xl p-6 lg:p-8 cursor-pointer transition-all duration-500 flex flex-col overflow-hidden ${isActive
-                                        ? "bg-primary/5 border-2 border-primary/15"
-                                        : "bg-slate-50 border-2 border-transparent hover:border-slate-200"
+                                    ? "bg-primary/5 border-2 border-primary/15"
+                                    : "bg-slate-50 border-2 border-transparent hover:border-slate-200"
                                     }`}
-                                style={{ minHeight: isActive ? "480px" : "480px" }}
+                                style={{ height: isActive ? "800px" : "440px" }}
                                 onMouseEnter={() => setActiveStep(index)}
                             >
                                 {/* Icon + Title */}
@@ -102,7 +102,7 @@ export default function HowItWorksSection() {
                                     </div>
 
                                     {/* Image */}
-                                    <div className="relative w-full aspect-[3/4] overflow-hidden">
+                                    <div className="relative w-full h-full overflow-hidden">
                                         <Image
                                             src={step.image}
                                             alt={step.title}

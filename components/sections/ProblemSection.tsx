@@ -15,7 +15,7 @@ const painPoints = [
         statLabel: "pasien lansia minum lebih dari 5 obat setiap hari",
         image: "/assets/dizzy.png",
         color: "from-rose-500 to-pink-600",
-        lightBg: "bg-rose-50",
+        lightBg: "bg-primary/5",
     },
     {
         icon: BrainCog,
@@ -26,7 +26,7 @@ const painPoints = [
         statLabel: "pasien tidak patuh minum obat sesuai resep",
         image: "/assets/forget.png",
         color: "from-rose-500 to-pink-600",
-        lightBg: "bg-rose-50",
+        lightBg: "bg-primary/5",
     },
     {
         icon: Briefcase,
@@ -37,7 +37,7 @@ const painPoints = [
         statLabel: "keluarga merasa cemas soal kepatuhan obat",
         image: "/assets/busy.png",
         color: "from-rose-500 to-pink-600",
-        lightBg: "bg-rose-50",
+        lightBg: "bg-primary/5",
     },
 ];
 

@@ -129,7 +129,7 @@ export default function HeroSection() {
                         {/* Center Phone (Home) */}
                         <div className="relative z-30 w-[42%] sm:w-[38%] lg:w-[34%] flex justify-center drop-shadow-[0_25px_50px_rgba(0,0,0,0.3)] hover:-translate-y-6 transition-all duration-500 group">
                             <Image
-                                src="/assets/home.png"
+                                src="/assets/Mockup Home.png"
                                 alt="Home Screen"
                                 width={500}
                                 height={1000}
