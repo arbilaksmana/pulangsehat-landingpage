@@ -52,7 +52,7 @@ export default function Footer() {
                         </p>
 
                         {/* Social Icons */}
-                        <div className="flex items-center gap-2">
+                        {/* <div className="flex items-center gap-2">
                             {socials.map((social) => (
                                 <a
                                     key={social.label}
@@ -63,7 +63,7 @@ export default function Footer() {
                                     <i className={`${social.icon} text-base`} />
                                 </a>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Link Columns */}
@@ -99,7 +99,11 @@ export default function Footer() {
                                 const name = (form.elements.namedItem("name") as HTMLInputElement).value;
                                 const email = (form.elements.namedItem("email") as HTMLInputElement).value;
                                 const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
-                                window.location.href = `mailto:arbilaksmana2@gmail.com?subject=Pesan dari ${name}&body=${encodeURIComponent(`Dari: ${name}\nEmail: ${email}\n\n${message}`)}`;
+
+                                // Prevent direct scraping of the master email by simple bots
+                                const u = "arbilaksmana2";
+                                const d = "gmail.com";
+                                window.location.href = `mailto:${u}@${d}?subject=${encodeURIComponent(`Pesan dari ${name}`)}&body=${encodeURIComponent(`Dari: ${name}\nEmail: ${email}\n\n${message}`)}`;
                             }}
                             className="space-y-3"
                         >

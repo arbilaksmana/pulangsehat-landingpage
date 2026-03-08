@@ -37,6 +37,8 @@ export default function CTASection() {
                                         href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
                                         className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 text-base font-semibold rounded-2xl hover:bg-white/90 transition-colors shadow-lg"
                                         target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="Download aplikasi PulangSehat dari Google Drive"
                                     >
                                         <Download className="w-5 h-5" />
                                         Download

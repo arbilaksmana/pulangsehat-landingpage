@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle2, HeartPulse, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import RotatingText from "@/components/ui/RotatingText";
 
 export default function HeroSection() {
     return (
@@ -40,10 +41,24 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.15] mb-6 max-w-5xl tracking-tight"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.15] mb-6 max-w-5xl tracking-tight flex flex-col justify-center items-center"
                 >
-                    Rawat Orang Tua <br className="hidden sm:block" />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Tanpa Cemas</span>, Pantau dari Mana Saja.
+                    <span className="mb-2 sm:mb-4">Rawat Orang Tua Tanpa Cemas</span>
+                    <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3 sm:gap-x-4">
+                        <span>Pantau</span>
+                        <RotatingText
+                            texts={['Obat.', 'Kondisi.', 'Jadwal.', 'Pemulihan.']}
+                            mainClassName="px-4 sm:px-6 bg-gradient-to-r from-primary to-rose-600 text-white overflow-hidden py-1 sm:py-2 inline-flex justify-center items-center rounded-2xl md:rounded-3xl shadow-lg border-b-4 border-rose-800/50"
+                            staggerFrom={"last"}
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-120%" }}
+                            staggerDuration={0.025}
+                            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                            rotationInterval={4200}
+                        />
+                    </div>
                 </motion.h1>
 
                 {/* Subheadline */}
@@ -71,6 +86,7 @@ export default function HeroSection() {
                             href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label="Download aplikasi PulangSehat dari Google Drive"
                             className="relative flex items-center gap-4 h-[60px] pl-8 pr-2.5 bg-primary border border-white/20 text-white rounded-full shadow-[0_8px_30px_rgba(225,29,72,0.3)] transition-all duration-300 transform group-hover:-translate-y-[2px]"
                         >
                             <span className="font-semibold text-base tracking-wide text-white">
@@ -88,12 +104,8 @@ export default function HeroSection() {
                     {/* Floating Card Left */}
                     <motion.div
                         initial={{ opacity: 0, x: -30, y: 10 }}
-                        animate={{ opacity: 1, x: 0, y: [-5, 5, -5] }}
-                        transition={{
-                            opacity: { duration: 0.8, delay: 0.6 },
-                            x: { duration: 0.8, delay: 0.6 },
-                            y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }
-                        }}
+                        animate={{ opacity: 1, x: 0, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
                         className="absolute top-[18%] left-[-12%] md:left-[2%] lg:left-[10%] xl:left-[12%] z-40 bg-white/90 backdrop-blur-md p-2.5 pr-6 rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] border border-white flex items-center gap-3 hidden md:flex"
                     >
                         <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent-purple rounded-full flex items-center justify-center shadow-inner">
@@ -123,6 +135,7 @@ export default function HeroSection() {
                                 width={400}
                                 height={800}
                                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                                priority
                             />
                         </div>
 
@@ -146,6 +159,7 @@ export default function HeroSection() {
                                 width={400}
                                 height={800}
                                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                                priority
                             />
                         </div>
                     </motion.div>
@@ -153,12 +167,8 @@ export default function HeroSection() {
                     {/* Floating Card Right */}
                     <motion.div
                         initial={{ opacity: 0, x: 30, y: -10 }}
-                        animate={{ opacity: 1, x: 0, y: [5, -5, 5] }}
-                        transition={{
-                            opacity: { duration: 0.8, delay: 0.8 },
-                            x: { duration: 0.8, delay: 0.8 },
-                            y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }
-                        }}
+                        animate={{ opacity: 1, x: 0, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
                         className="absolute top-[8%] right-[-2%] md:right-[2%] lg:right-[8%] xl:right-[10%] z-40 bg-white/90 backdrop-blur-md p-2.5 pr-6 rounded-full shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] border border-white flex items-center gap-3 hidden md:flex"
                     >
                         <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shadow-inner relative">

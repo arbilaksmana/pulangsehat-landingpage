@@ -10,6 +10,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pulangsehat.id"),
   title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
   description:
     "Asisten digital pemulihan pasca-rawat inap. Scan label obat dengan AI, atur jadwal otomatis, dan pantau kepatuhan minum obat orang tua secara real-time bersama keluarga.",
