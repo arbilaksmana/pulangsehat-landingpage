@@ -4,13 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, FlaskConical } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CTA_LINKS, trackCtaEvent } from "@/lib/tracking";
 
 const navLinks = [
     { href: "#masalah", label: "Masalah" },
     { href: "#fitur", label: "Fitur" },
     { href: "#cara-kerja", label: "Cara Kerja" },
+    { href: "/blog", label: "Blog" },
 ];
 
 export default function Navbar() {
@@ -46,6 +48,7 @@ export default function Navbar() {
                 )}
             >
                 <nav
+                    aria-label="Navigasi utama"
                     className={cn(
                         "transition-all duration-500 ease-out",
                         isScrolled
@@ -97,10 +100,12 @@ export default function Navbar() {
                         {/* Desktop CTA */}
                         <div className="hidden md:flex items-center">
                             <a
-                                href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
+                                href={CTA_LINKS.earlyAccessInternal}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Download aplikasi PulangSehat dari Google Drive"
+                                aria-label="Gabung early adopter dan user testing PulangSehat"
+                                onClick={() => trackCtaEvent("early_access_navbar_desktop", CTA_LINKS.earlyAccess)}
+                                data-track-event="early_access_navbar_desktop"
                                 className={cn(
                                     "inline-flex items-center gap-2 text-sm font-semibold rounded-full transition-all duration-300",
                                     isScrolled
@@ -108,8 +113,8 @@ export default function Navbar() {
                                         : "px-5 py-2.5 bg-slate-900 text-white hover:bg-slate-800"
                                 )}
                             >
-                                <Download className="w-3.5 h-3.5" />
-                                Download
+                                <FlaskConical className="w-3.5 h-3.5" />
+                                Coba Sekarang
                             </a>
                         </div>
 
@@ -120,7 +125,9 @@ export default function Navbar() {
                                 "md:hidden w-9 h-9 flex items-center justify-center rounded-full transition-colors",
                                 isScrolled ? "hover:bg-slate-100" : "hover:bg-white/20"
                             )}
-                            aria-label="Toggle menu"
+                            aria-label={isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+                            aria-expanded={isMobileMenuOpen}
+                            aria-controls="mobile-navigation-menu"
                         >
                             {isMobileMenuOpen ? (
                                 <X className="w-5 h-5 text-slate-700" />
@@ -147,6 +154,7 @@ export default function Navbar() {
                         />
                         {/* Panel */}
                         <motion.div
+                            id="mobile-navigation-menu"
                             initial={{ opacity: 0, y: -8, scale: 0.98 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -166,15 +174,19 @@ export default function Navbar() {
                                 ))}
                                 <div className="pt-2 mt-1 border-t border-slate-100">
                                     <a
-                                        href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
+                                        href={CTA_LINKS.earlyAccessInternal}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        aria-label="Download aplikasi PulangSehat dari Google Drive"
-                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        aria-label="Gabung early adopter dan user testing PulangSehat"
+                                        onClick={() => {
+                                            trackCtaEvent("early_access_navbar_mobile", CTA_LINKS.earlyAccess);
+                                            setIsMobileMenuOpen(false);
+                                        }}
+                                        data-track-event="early_access_navbar_mobile"
                                         className="flex items-center justify-center gap-2 w-full px-5 py-3 mt-2 bg-primary text-white font-semibold rounded-xl text-[15px]"
                                     >
-                                        <Download className="w-4 h-4" />
-                                        Download App
+                                        <FlaskConical className="w-4 h-4" />
+                                        Coba Sekarang
                                     </a>
                                 </div>
                             </div>

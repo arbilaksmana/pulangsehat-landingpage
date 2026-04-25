@@ -85,6 +85,8 @@ export default function ProblemSection() {
                                     <button
                                         key={index}
                                         onClick={() => setActiveIndex(index)}
+                                        aria-pressed={isActive}
+                                        aria-label={`Tampilkan masalah: ${point.title}`}
                                         className={`relative text-left p-5 lg:p-6 rounded-2xl transition-all duration-300 border ${isActive
                                             ? "bg-slate-900 border-slate-800 shadow-xl"
                                             : "bg-slate-50 border-slate-100 hover:bg-slate-100 hover:border-slate-200"
@@ -118,7 +120,7 @@ export default function ProblemSection() {
                         </div>
 
                         {/* Right: Content Display */}
-                        <div className="flex-1 min-h-[400px] lg:min-h-[440px]">
+                        <div className="flex-1">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={activeIndex}
@@ -126,29 +128,29 @@ export default function ProblemSection() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.3 }}
-                                    className={`h-full rounded-3xl ${active.lightBg} p-8 lg:p-12 flex flex-col justify-between overflow-hidden relative`}
+                                    className={`relative flex min-h-[auto] flex-col overflow-hidden rounded-3xl ${active.lightBg} p-5 sm:p-6 lg:min-h-[440px] lg:p-12 lg:pb-10`}
                                 >
                                     {/* Top: Stat + Text */}
-                                    <div className="relative z-10 max-w-md">
-                                        <span className={`inline-block text-7xl lg:text-8xl font-extrabold bg-gradient-to-r ${active.color} text-transparent bg-clip-text mb-2 tracking-tighter leading-none`}>
+                                    <div className="relative z-10 max-w-xl lg:max-w-md">
+                                        <span className={`mb-2 inline-block bg-gradient-to-r ${active.color} bg-clip-text text-6xl font-extrabold leading-none tracking-tighter text-transparent sm:text-7xl lg:text-8xl`}>
                                             {active.stat}
                                         </span>
-                                        <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
+                                        <h3 className="mb-3 text-2xl font-bold text-slate-900 sm:mb-4 lg:text-3xl">
                                             {active.title}
                                         </h3>
-                                        <p className="text-slate-600 leading-relaxed text-base lg:text-[17px]">
+                                        <p className="text-base leading-relaxed text-slate-600 lg:text-[17px]">
                                             {active.description}
                                         </p>
                                     </div>
 
                                     {/* Bottom-right: Illustration */}
-                                    <div className="absolute bottom-0 right-0 w-[280px] lg:w-[340px] h-[280px] lg:h-[340px]">
+                                    <div className="pointer-events-none relative z-0 mt-6 h-44 w-full self-end sm:h-56 lg:absolute lg:bottom-0 lg:right-0 lg:mt-0 lg:h-[340px] lg:w-[340px]">
                                         <Image
                                             src={active.image}
                                             alt={active.title}
                                             width={400}
                                             height={400}
-                                            className="w-full h-full object-contain object-bottom drop-shadow-lg"
+                                            className="h-full w-full object-contain object-bottom drop-shadow-lg lg:object-right-bottom"
                                         />
                                     </div>
                                 </motion.div>

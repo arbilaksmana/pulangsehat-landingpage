@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Instagram, Mail } from "lucide-react";
+import { trackCtaEvent } from "@/lib/tracking";
 
 const footerLinks = [
     {
@@ -9,7 +11,7 @@ const footerLinks = [
         links: [
             { href: "#fitur", label: "Fitur" },
             { href: "#cara-kerja", label: "Cara Kerja" },
-            { href: "#download", label: "Download" },
+            { href: "#user-testing", label: "User Testing" },
         ],
     },
     {
@@ -22,11 +24,9 @@ const footerLinks = [
     },
 ];
 
-const socials = [
-    { href: "#", icon: "lni lni-instagram", label: "Instagram" },
-    { href: "#", icon: "lni lni-x", label: "Twitter" },
-    { href: "#", icon: "lni lni-linkedin", label: "LinkedIn" },
-];
+const contactEmailUser = "contact";
+const contactEmailDomain = "pulangsehat.com";
+const instagramUrl = "https://www.instagram.com/pulangsehat/";
 
 export default function Footer() {
     return (
@@ -51,19 +51,24 @@ export default function Footer() {
                             Asisten digital pemulihan pasca-rawat inap. Membantu keluarga Indonesia memantau kepatuhan minum obat.
                         </p>
 
-                        {/* Social Icons */}
-                        {/* <div className="flex items-center gap-2">
-                            {socials.map((social) => (
-                                <a
-                                    key={social.label}
-                                    href={social.href}
-                                    aria-label={social.label}
-                                    className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/60 hover:bg-white hover:text-primary transition-all duration-200"
-                                >
-                                    <i className={`${social.icon} text-base`} />
-                                </a>
-                            ))}
-                        </div> */}
+                        <div className="flex items-center gap-2">
+                            <a
+                                href={instagramUrl}
+                                aria-label="Instagram PulangSehat"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                            >
+                                <Instagram className="h-5 w-5" strokeWidth={2.4} aria-hidden="true" />
+                            </a>
+                            <a
+                                href={`mailto:${contactEmailUser}@${contactEmailDomain}`}
+                                aria-label="Email PulangSehat"
+                                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.12)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                            >
+                                <Mail className="h-5 w-5" strokeWidth={2.4} aria-hidden="true" />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Link Columns */}
@@ -101,29 +106,36 @@ export default function Footer() {
                                 const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
                                 // Prevent direct scraping of the master email by simple bots
-                                const u = "arbilaksmana2";
-                                const d = "gmail.com";
+                                const u = contactEmailUser;
+                                const d = contactEmailDomain;
+                                trackCtaEvent("contact_footer_submit", `mailto:${u}@${d}`);
                                 window.location.href = `mailto:${u}@${d}?subject=${encodeURIComponent(`Pesan dari ${name}`)}&body=${encodeURIComponent(`Dari: ${name}\nEmail: ${email}\n\n${message}`)}`;
                             }}
                             className="space-y-3"
                         >
                             <input
+                                id="footer-contact-name"
                                 name="name"
                                 type="text"
                                 placeholder="Nama"
+                                aria-label="Nama"
                                 required
                                 className="w-full px-4 py-2.5 bg-white/10 border border-white/10 rounded-xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
                             />
                             <input
+                                id="footer-contact-email"
                                 name="email"
                                 type="email"
                                 placeholder="Email"
+                                aria-label="Email"
                                 required
                                 className="w-full px-4 py-2.5 bg-white/10 border border-white/10 rounded-xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
                             />
                             <textarea
+                                id="footer-contact-message"
                                 name="message"
                                 placeholder="Pesan"
+                                aria-label="Pesan"
                                 rows={3}
                                 required
                                 className="w-full px-4 py-2.5 bg-white/10 border border-white/10 rounded-xl text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors resize-none"

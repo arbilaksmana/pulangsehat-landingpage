@@ -102,7 +102,7 @@ export default function HowItWorksSection() {
                                     </div>
 
                                     {/* Image */}
-                                    <div className="relative w-full h-full overflow-hidden">
+                                    <div className="relative h-full w-full overflow-hidden">
                                         <Image
                                             src={step.image}
                                             alt={step.title}
