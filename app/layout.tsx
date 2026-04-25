@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import AgentationMount from "@/components/agentation/AgentationMount";
+import FreeAnalytics from "@/components/analytics/FreeAnalytics";
 import "./globals.css";
 import "lineicons/dist/lineicons.css";
+
+const siteUrl = "https://pulangsehat.com";
+const socialImage = "/assets/cta.jpg";
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -10,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pulangsehat.id"),
+  metadataBase: new URL(siteUrl),
   title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
   description:
     "Asisten digital pemulihan pasca-rawat inap. Scan label obat dengan AI, atur jadwal otomatis, dan pantau kepatuhan minum obat orang tua secara real-time bersama keluarga.",
@@ -24,13 +30,46 @@ export const metadata: Metadata = {
     "sandwich generation",
   ],
   authors: [{ name: "PulangSehat Team" }],
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon1.ico" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   openGraph: {
     title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
     description:
       "Asisten digital pemulihan pasca-rawat inap. Pantau kepatuhan minum obat orang tua secara real-time.",
+    url: siteUrl,
+    siteName: "PulangSehat",
     type: "website",
     locale: "id_ID",
+    images: [
+      {
+        url: socialImage,
+        width: 1200,
+        height: 630,
+        alt: "PulangSehat membantu keluarga memantau obat dan pemulihan orang tua.",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
+    description:
+      "Pantau jadwal obat, kondisi, dan pemulihan orang tua secara real-time bersama keluarga.",
+    images: [socialImage],
+  },
+  verification: googleSiteVerification
+    ? {
+        google: googleSiteVerification,
+      }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -41,6 +80,14 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-xl focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+        >
+          Lewati ke konten utama
+        </a>
+        <FreeAnalytics />
+        <AgentationMount />
         {children}
       </body>
     </html>

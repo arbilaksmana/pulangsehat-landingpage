@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://pulangsehat.id/sitemap.xml',
+        sitemap: 'https://pulangsehat.com/sitemap.xml',
     }
 }
