@@ -1,58 +1,99 @@
-# 🏥 PulangSehat Landing Page
+# PulangSehat Landing Page
 
-Landing page modern, responsif, dan interaktif untuk aplikasi **PulangSehat** — *Asisten digital pemulihan pasca-rawat inap.*
+Landing page modern untuk **PulangSehat** — asisten digital pemulihan pasca-rawat inap yang membantu keluarga memantau jadwal obat, kondisi harian, kontrol dokter, dan koordinasi caregiver.
 
 ![PulangSehat Hero](public/assets/Mockup%20Home.png)
 
-## 📌 Tentang Proyek
+## Tentang Proyek
 
-PulangSehat adalah aplikasi yang membantu pasien lansia dan keluarga (caregiver) dalam memantau kepatuhan minum obat pasca-rawat inap. Landing page ini dirancang untuk:
-- Menarik minat pengguna untuk mengunduh aplikasi.
-- Mengedukasi pengunjung tentang masalah kepatuhan obat lansia.
-- Menjelaskan fitur utama dan cara kerja aplikasi dengan cara yang visual dan interaktif.
+PulangSehat membantu pasien lansia dan keluarga mengurangi kebingungan setelah pulang dari rumah sakit. Website ini dirancang untuk:
 
-## 🚀 Teknologi yang Digunakan
+- Mengedukasi keluarga tentang kepatuhan obat dan pemulihan pasca-rawat inap.
+- Menjelaskan fitur utama PulangSehat dengan landing page interaktif.
+- Mengumpulkan early adopter dan peserta user testing prototype.
+- Menyediakan blog caregiver berbasis Notion CMS dengan fallback lokal.
 
-Proyek ini dibangun menggunakan *stack* teknologi modern untuk performa dan pengalaman pengguna terbaik:
+## Teknologi
 
-- **[Next.js 14](https://nextjs.org/)** - Framework React untuk *Server-Side Rendering* (SSR) dan *Static Site Generation* (SSG). Menggunakan *App Router*.
-- **[Tailwind CSS](https://tailwindcss.com/)** - *Utility-first CSS framework* untuk *styling* yang cepat dan konsisten.
-- **[Framer Motion](https://www.framer.com/motion/)** - Library animasi React untuk transisi halus dan efek responsif saat *scroll*.
-- **[Lucide React](https://lucide.dev/)** - Kumpulan ikon SVG yang bersih dan konsisten.
-- **[LineIcons](https://lineicons.com/)** - *Web font icon library* tambahan (untuk ikon store/app).
-- **TypeScript** - *Static typing* untuk kode yang lebih aman dan terprediksi.
+- **Next.js 16** dengan App Router, SSG/ISR, metadata routes, dan API route redirect early access.
+- **React 19** dan **TypeScript**.
+- **Tailwind CSS 4** untuk styling responsif.
+- **Framer Motion** untuk animasi UI.
+- **Lucide React** untuk ikon SVG.
+- **Notion API** untuk CMS blog.
+- **Microsoft Clarity**, **Google Analytics 4**, **Google Search Console**, dan **Vercel Analytics/Speed Insights** untuk analytics gratis.
 
-## 📂 Struktur Folder / Komponen Utama
+## Struktur Utama
 
-Bagian terpenting dari proyek ini berpusat di folder `components/sections/`, di mana blok-blok landing page dirakit:
+- `app/page.tsx` — landing page utama.
+- `app/blog/*` — blog listing, kategori, dan detail artikel.
+- `app/features/[slug]/page.tsx` — halaman detail fitur.
+- `app/api/early-access/route.ts` — redirect internal ke form early access.
+- `components/sections/` — hero, problem, feature, cara kerja, blog highlight, CTA.
+- `components/features/` — demo interaktif DOM/Framer Motion untuk fitur.
+- `lib/blog.ts` dan `lib/blog-local.ts` — adapter Notion + fallback konten lokal.
+- `lib/features.ts` — data halaman fitur.
+- `lib/tracking.ts` — katalog event tracking.
 
-- `Navbar.tsx` - Navigasi dinamis dengan efek *floating pill* dan *glassmorphism* saat di-*scroll*.
-- `HeroSection.tsx` - Bagian utama (atas) yang sangat atraktif dengan gradien *primary* dan CTA tombol ke Google Drive.
-- `ProblemSection.tsx` - Menampilkan "Pain Points" kepatuhan obat menggunakan sistem *tabbed interaction* dan warna *slate* halus.
-- `FeaturesSection.tsx` - Grid fitur keunggulan PulangSehat dengan gradasi *background highlight band*.
-- `HowItWorksSection.tsx` - Menjelaskan langkah-langkah penggunaan aplikasi dengan animasi *frame slide-down* interaktif saat kursor diarahkan (*hover*).
-- `CTASection.tsx` - Kotak raksasa di bagian bawah dengan dua kolom (Teks & Gambar) untuk dorongan *download* terakhir.
-- `Footer.tsx` - Menu kaki dengan form "Hubungi Kami" interaktif menggunakan `mailto:`.
+## Menjalankan Lokal
 
-## 💻 Panduan Menjalankan di Lokal (Development)
+```bash
+npm install
+npm run dev
+```
 
-1. **Pastikan Anda memiliki [Node.js](https://nodejs.org/) terinstal** (disarankan versi 18.x atau lebih baru).
-2. Buka terminal dan arahkan ke direktori proyek ini.
-3. Instal dependencies (jika belum):
-   ```bash
-   npm install
-   ```
-4. Jalankan server *development*:
-   ```bash
-   npm run dev
-   ```
-5. Buka [http://localhost:3000](http://localhost:3000) di browser Anda untuk melihat hasilnya. Halaman akan otomatis melakukan *live-reload* saat Anda memodifikasi komponen.
+Buka `http://localhost:3000`.
 
-## 📱 Responsivitas & Desain
+## Environment Variables
 
-- **Mobile First Approach:** Dibangun menggunakan pola Tailwind untuk memastikan kenyamanan dilihat dari ponsel cerdas hingga monitor besar.
-- **Animasi Ringan:** Menggunakan `<motion.div>` dari Framer Motion di mana parameter *viewport* (`whileInView`) akan mengatur elemen-elemen untuk muncul lambat (*fade-up*) selagi pengguna *scroll* ke bawah.
-- **Aksen Warna Utama (Primary):** Merah marun khas kesehatan (`#E11D48` atau kelas `bg-primary` di Tailwind configuration).
+Salin `.env.example` ke `.env` lalu isi nilai yang diperlukan.
 
----
-*Dibuat oleh Tim PulangSehat untuk membantu para pejuang Sandwich Generation dan Lansia Indonesia.*
+```bash
+NEXT_PUBLIC_CLARITY_PROJECT_ID=
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+NEXT_PUBLIC_EARLY_ACCESS_URL=https://forms.gle/BDHUEGQA83ZTkpd37
+NEXT_PUBLIC_ENABLE_AGENTATION=false
+NEXT_PUBLIC_AGENTATION_ENDPOINT=http://localhost:4747
+
+NOTION_API_KEY=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+NOTION_DATA_SOURCE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+Catatan:
+
+- `NEXT_PUBLIC_ENABLE_AGENTATION=true` hanya untuk review lokal dengan Agentation.
+- `NEXT_PUBLIC_CLARITY_PROJECT_ID` diisi dari Microsoft Clarity project.
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` diisi dengan format `G-XXXXXXXXXX` dari GA4.
+- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` opsional jika memakai verifikasi Search Console via meta tag; verifikasi DNS domain property tetap lebih direkomendasikan.
+- Jika `NOTION_API_KEY` atau data source tidak tersedia, blog memakai fallback lokal.
+
+## Validasi
+
+```bash
+npm run lint
+npm run build
+```
+
+CI GitHub Actions menjalankan `npm ci`, `npm run lint`, dan `npm run build` pada push/PR ke `main`.
+
+## Deployment
+
+Pastikan environment production mengisi minimal:
+
+- `NEXT_PUBLIC_EARLY_ACCESS_URL`
+- `NEXT_PUBLIC_CLARITY_PROJECT_ID`
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+- `NOTION_API_KEY`
+- `NOTION_DATA_SOURCE_ID`
+
+Untuk Vercel, aktifkan juga **Web Analytics** dan **Speed Insights** dari dashboard project. Domain production canonical project ini adalah `https://pulangsehat.com`.
+
+Setelah deploy, verifikasi:
+
+- `/`
+- `/blog`
+- `/features/scan-to-plan`
+- `/contact`
+- `/sitemap.xml`
+- `/robots.txt`
