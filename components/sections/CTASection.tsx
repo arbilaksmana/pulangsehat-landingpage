@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { FlaskConical } from "lucide-react";
+import { CTA_LINKS, trackCtaEvent } from "@/lib/tracking";
 
 export default function CTASection() {
     return (
-        <section id="download" className="mb-24 lg:mb-32 relative overflow-hidden">
+        <section id="user-testing" className="relative overflow-hidden py-24 lg:py-32">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -23,25 +24,26 @@ export default function CTASection() {
 
                             <div className="relative z-10 text-center lg:text-left">
                                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                                    Mulai Pantau<br />
-                                    Kesehatan Orang Tua,{" "}
-                                    <span className="text-white/80 italic">Tanpa Cemas.</span>
+                                    Jadi Early Adopter<br />
+                                    PulangSehat,{" "}
+                                    <span className="text-white/80 italic">lebih awal.</span>
                                 </h2>
                                 <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-10 max-w-md mx-auto lg:mx-0">
-                                    Gratis 30 hari pertama. Dipercaya oleh 15.000+ keluarga di Indonesia.
+                                    Bantu kami menyusun pengalaman caregiver yang lebih tepat sejak awal. Dapatkan akses prototype, bagikan masukan, dan ikut membentuk produk PulangSehat.
                                 </p>
 
-                                {/* Download Buttons */}
                                 <div className="flex justify-center lg:justify-start">
                                     <a
-                                        href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
-                                        className="inline-flex items-center gap-2 px-8 py-4 bg-white text-slate-900 text-base font-semibold rounded-2xl hover:bg-white/90 transition-colors shadow-lg"
+                                        href={CTA_LINKS.earlyAccessInternal}
+                                        className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-semibold text-slate-900 shadow-lg transition-colors hover:bg-white/90"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        aria-label="Download aplikasi PulangSehat dari Google Drive"
+                                        aria-label="Daftar early adopter dan user testing PulangSehat"
+                                        onClick={() => trackCtaEvent("early_access_cta_section", CTA_LINKS.earlyAccess)}
+                                        data-track-event="early_access_cta_section"
                                     >
-                                        <Download className="w-5 h-5" />
-                                        Download
+                                        <FlaskConical className="w-5 h-5" />
+                                        Gabung Early Adopter
                                     </a>
                                 </div>
                             </div>
@@ -54,6 +56,7 @@ export default function CTASection() {
                                 alt="Merawat Orang Tua bersama PulangSehat"
                                 fill
                                 className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
 
                         </div>

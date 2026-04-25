@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles, CheckCircle2, HeartPulse, Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CheckCircle2, HeartPulse, FlaskConical } from "lucide-react";
 import RotatingText from "@/components/ui/RotatingText";
+import { CTA_LINKS, trackCtaEvent } from "@/lib/tracking";
 
 export default function HeroSection() {
     return (
@@ -53,10 +53,10 @@ export default function HeroSection() {
                             initial={{ y: "100%" }}
                             animate={{ y: 0 }}
                             exit={{ y: "-120%" }}
-                            staggerDuration={0.025}
+                            staggerDuration={0.014}
                             splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                            rotationInterval={4200}
+                            transition={{ type: "spring", damping: 34, stiffness: 520 }}
+                            rotationInterval={2400}
                         />
                     </div>
                 </motion.h1>
@@ -78,22 +78,28 @@ export default function HeroSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
-                    className="flex justify-center mb-16 lg:mb-20"
+                    className="mb-16 flex justify-center lg:mb-20"
                 >
-                    <div className="relative group cursor-pointer inline-block">
-                        {/* Glow/Blur effect underneath */}
+                    <div className="relative group inline-block cursor-pointer">
                         <a
-                            href="https://drive.google.com/drive/folders/1PwA9Kbaca0HB3MgjUXYqZWefY9mxT5zJ?usp=sharing"
+                            href={CTA_LINKS.earlyAccessInternal}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Download aplikasi PulangSehat dari Google Drive"
-                            className="relative flex items-center gap-4 h-[60px] pl-8 pr-2.5 bg-primary border border-white/20 text-white rounded-full shadow-[0_8px_30px_rgba(225,29,72,0.3)] transition-all duration-300 transform group-hover:-translate-y-[2px]"
+                            aria-label="Daftar user testing PulangSehat untuk early adopter"
+                            onClick={() => trackCtaEvent("early_access_hero", CTA_LINKS.earlyAccess)}
+                            data-track-event="early_access_hero"
+                            className="relative flex h-[60px] items-center gap-4 rounded-full border border-white/20 bg-primary pl-8 pr-2.5 text-white shadow-[0_8px_30px_rgba(225,29,72,0.3)] transition-all duration-300 group-hover:-translate-y-[2px]"
                         >
-                            <span className="font-semibold text-base tracking-wide text-white">
-                                Download Sekarang
-                            </span>
-                            <div className="w-11 h-11 rounded-full bg-white text-primary flex items-center justify-center shadow-inner transition-transform group-hover:rotate-12 duration-300">
-                                <Download className="w-5 h-5" strokeWidth={2.5} />
+                            <div className="space-y-0.5">
+                                <span className="block text-base font-semibold tracking-wide text-white">
+                                    Ikut User Testing
+                                </span>
+                                <span className="block text-xs text-white/70">
+                                    Akses early adopter terbatas
+                                </span>
+                            </div>
+                            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary shadow-inner transition-transform duration-300 group-hover:rotate-12">
+                                <FlaskConical className="h-4.5 w-4.5" strokeWidth={2.2} />
                             </div>
                         </a>
                     </div>
@@ -148,6 +154,7 @@ export default function HeroSection() {
                                 height={1000}
                                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
                                 priority
+                                sizes="(max-width: 640px) 42vw, (max-width: 1024px) 38vw, 34vw"
                             />
                         </div>
 
@@ -159,7 +166,7 @@ export default function HeroSection() {
                                 width={400}
                                 height={800}
                                 className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
-                                priority
+                                sizes="(max-width: 640px) 33vw, (max-width: 1024px) 30vw, 28vw"
                             />
                         </div>
                     </motion.div>

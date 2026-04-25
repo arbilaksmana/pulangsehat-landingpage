@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScanLine, Users, Bot, FileText, ArrowRight } from "lucide-react";
+import { featureDetails } from "@/lib/features";
 
 const features = [
     {
@@ -12,6 +14,7 @@ const features = [
             "Ubah label obat fisik jadi jadwal digital hanya dengan satu foto. Didukung teknologi AI MedGemma.",
         iconBg: "bg-primary",
         iconColor: "text-white",
+        href: `/features/${featureDetails[0].slug}`,
     },
     {
         icon: Users,
@@ -20,6 +23,7 @@ const features = [
             "Satu pasien dipantau satu keluarga. Notifikasi real-time jika orang tua lupa minum obat.",
         iconBg: "bg-primary",
         iconColor: "text-white",
+        href: `/features/${featureDetails[1].slug}`,
     },
     {
         icon: Bot,
@@ -28,6 +32,7 @@ const features = [
             "Jangan sampai lupa kontrol ulang ke dokter. PulangSehat ingatkan jadwal kontrol Anda.",
         iconBg: "bg-primary",
         iconColor: "text-white",
+        href: `/features/${featureDetails[2].slug}`,
     },
     {
         icon: FileText,
@@ -36,6 +41,7 @@ const features = [
             "Download laporan kepatuhan PDF untuk dibawa saat kontrol ke dokter.",
         iconBg: "bg-primary",
         iconColor: "text-white",
+        href: `/features/${featureDetails[3].slug}`,
     },
 ];
 
@@ -87,9 +93,9 @@ export default function FeaturesSection() {
                             <p className="text-slate-500 leading-relaxed mb-6">
                                 {features[0].description}
                             </p>
-                            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
+                            <Link href={features[0].href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
                                 Pelajari <ArrowRight className="w-4 h-4" />
-                            </span>
+                            </Link>
                         </div>
                     </motion.div>
 
@@ -133,9 +139,9 @@ export default function FeaturesSection() {
                             <p className="text-slate-500 leading-relaxed mb-6">
                                 {features[1].description}
                             </p>
-                            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
+                            <Link href={features[1].href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
                                 Pelajari <ArrowRight className="w-4 h-4" />
-                            </span>
+                            </Link>
                         </div>
                     </motion.div>
 
@@ -157,9 +163,9 @@ export default function FeaturesSection() {
                             <p className="text-slate-500 leading-relaxed mb-6">
                                 {features[2].description}
                             </p>
-                            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
+                            <Link href={features[2].href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
                                 Pelajari <ArrowRight className="w-4 h-4" />
-                            </span>
+                            </Link>
                         </div>
                     </motion.div>
 
@@ -181,9 +187,9 @@ export default function FeaturesSection() {
                             <p className="text-slate-500 leading-relaxed mb-6">
                                 {features[3].description}
                             </p>
-                            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
+                            <Link href={features[3].href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300">
                                 Pelajari <ArrowRight className="w-4 h-4" />
-                            </span>
+                            </Link>
                         </div>
                     </motion.div>
 
