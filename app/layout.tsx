@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import AgentationMount from "@/components/agentation/AgentationMount";
 import FreeAnalytics from "@/components/analytics/FreeAnalytics";
 import "./globals.css";
@@ -7,6 +8,7 @@ import "lineicons/dist/lineicons.css";
 
 const siteUrl = "https://pulangsehat.com";
 const socialImage = "/assets/cta.jpg";
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -80,6 +82,15 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${plusJakartaSans.variable} font-sans antialiased`}>
+        {clarityProjectId ? (
+          <Script id="microsoft-clarity" strategy="beforeInteractive">
+            {`(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${clarityProjectId}");`}
+          </Script>
+        ) : null}
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow-xl focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primary"
