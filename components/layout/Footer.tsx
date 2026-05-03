@@ -9,16 +9,17 @@ const footerLinks = [
     {
         title: "Produk",
         links: [
-            { href: "#fitur", label: "Fitur" },
-            { href: "#cara-kerja", label: "Cara Kerja" },
-            { href: "#user-testing", label: "User Testing" },
+            { href: "/#fitur", label: "Fitur" },
+            { href: "/#cara-kerja", label: "Cara Kerja" },
+            { href: "/#user-testing", label: "User Testing" },
         ],
     },
     {
         title: "Legal",
         links: [
             { href: "/privacy", label: "Privacy Policy" },
-            { href: "/terms", label: "Terms of Service" },
+            { href: "/terms-of-service", label: "Terms of Service" },
+            { href: "/disclaimer", label: "Medical Disclaimer" },
             { href: "/contact", label: "Hubungi Kami" },
         ],
     },
@@ -48,7 +49,10 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-sm text-white/60 leading-relaxed mb-8 max-w-xs">
-                            Asisten digital pemulihan pasca-rawat inap. Membantu keluarga Indonesia memantau kepatuhan minum obat.
+                            Aplikasi monitoring pasien pasca rawat inap untuk membantu keluarga mencatat kondisi, jadwal, dan kepatuhan obat.
+                        </p>
+                        <p className="text-xs text-white/40 leading-relaxed mb-8 max-w-sm">
+                            PulangSehat bukan pengganti diagnosis, konsultasi, atau perawatan dari tenaga medis profesional.
                         </p>
 
                         <div className="flex items-center gap-2">
@@ -157,7 +161,8 @@ export default function Footer() {
                     </p>
                     <div className="flex items-center gap-5 text-xs text-white/40">
                         <Link href="/privacy" className="hover:text-white/70 transition-colors">Privacy</Link>
-                        <Link href="/terms" className="hover:text-white/70 transition-colors">Terms</Link>
+                        <Link href="/terms-of-service" className="hover:text-white/70 transition-colors">Terms</Link>
+                        <Link href="/disclaimer" className="hover:text-white/70 transition-colors">Disclaimer</Link>
                     </div>
                 </div>
 

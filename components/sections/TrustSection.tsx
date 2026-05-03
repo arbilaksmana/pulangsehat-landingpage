@@ -1,29 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Lock, Award, Building2 } from "lucide-react";
-
-const partners = [
-    { name: "IDI", subtitle: "Ikatan Dokter Indonesia", icon: Award },
-    { name: "IAI", subtitle: "Ikatan Apoteker Indonesia", icon: Building2 },
-    { name: "Google Cloud", subtitle: "Cloud Infrastructure", icon: Shield },
-];
+import { FileCheck2, Lock, Mail, Shield } from "lucide-react";
 
 const trustPoints = [
     {
         icon: Shield,
-        title: "Enkripsi End-to-End",
-        description: "Semua data medis terenkripsi dengan standar industri kesehatan.",
+        title: "Privasi Data Kesehatan",
+        description: "Data kesehatan diperlakukan sebagai data sensitif dan digunakan untuk fungsi inti aplikasi.",
     },
     {
         icon: Lock,
-        title: "Kepatuhan HIPAA",
-        description: "Mengikuti standar keamanan data kesehatan internasional.",
+        title: "Pengamanan Akses",
+        description: "Akses data dibatasi dan layanan dirancang menggunakan koneksi terenkripsi.",
     },
     {
-        icon: Award,
-        title: "Verified by Medical Experts",
-        description: "Dikembangkan bersama dokter dan apoteker berpengalaman.",
+        icon: FileCheck2,
+        title: "Disclaimer Medis Jelas",
+        description: "PulangSehat bukan perangkat medis dan bukan pengganti konsultasi tenaga kesehatan.",
     },
 ];
 
@@ -47,16 +41,16 @@ export default function TrustSection() {
                 >
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
                         <Shield className="w-4 h-4" />
-                        Keamanan Terjamin
+                        Privasi & Transparansi
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                        Didukung oleh{" "}
-                        <span className="text-primary">Teknologi AI Terkini</span> &
-                        Standar Keamanan Data Medis
+                        Dirancang untuk{" "}
+                        <span className="text-primary">Pencatatan dan Pemantauan</span>
+                        Pasca Rawat Inap
                     </h2>
                     <p className="text-lg text-muted-foreground">
-                        Kami berkomitmen menjaga privasi dan keamanan data kesehatan
-                        keluarga Anda dengan standar tertinggi.
+                        PulangSehat membantu keluarga menyimpan catatan secara lebih rapi tanpa menggantikan diagnosis,
+                        konsultasi, atau keputusan dari tenaga kesehatan profesional.
                     </p>
                 </motion.div>
 
@@ -86,7 +80,7 @@ export default function TrustSection() {
                     ))}
                 </motion.div>
 
-                {/* Partners */}
+                {/* Contact */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -95,25 +89,21 @@ export default function TrustSection() {
                     className="text-center"
                 >
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-8">
-                        Dipercaya & Didukung Oleh
+                        Kontak Resmi
                     </p>
-                    <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
-                        {partners.map((partner, index) => (
-                            <div
-                                key={index}
-                                className="flex items-center gap-3 px-6 py-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
-                            >
-                                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
-                                    <partner.icon className="w-5 h-5 text-primary" />
-                                </div>
-                                <div className="text-left">
-                                    <p className="font-bold text-foreground">{partner.name}</p>
-                                    <p className="text-xs text-muted-foreground">
-                                        {partner.subtitle}
-                                    </p>
-                                </div>
+                    <div className="flex justify-center">
+                        <a
+                            href="mailto:contact@pulangsehat.com"
+                            className="flex items-center gap-3 rounded-xl bg-white px-6 py-4 text-left shadow-sm transition-all hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                        >
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
+                                <Mail className="h-5 w-5 text-primary" />
                             </div>
-                        ))}
+                            <div>
+                                <p className="font-bold text-foreground">contact@pulangsehat.com</p>
+                                <p className="text-xs text-muted-foreground">Dukungan, privasi, dan user testing</p>
+                            </div>
+                        </a>
                     </div>
                 </motion.div>
             </div>
