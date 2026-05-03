@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Hubungi Kami | PulangSehat",
   description:
-    "Hubungi tim PulangSehat untuk kolaborasi, pertanyaan produk, atau ikut user testing prototype.",
+    "Kontak resmi PulangSehat untuk dukungan aplikasi monitoring pasien pasca rawat inap, pertanyaan privasi, dan user testing.",
   alternates: {
     canonical: "/contact",
   },
@@ -25,8 +25,31 @@ export default function ContactPage() {
         </h1>
         <div className="mt-8 space-y-5 text-base leading-8 text-slate-600">
           <p>
-            Jika Anda ingin berdiskusi tentang produk, kerja sama, atau ikut user testing prototype, silakan hubungi
-            kami melalui email atau Instagram resmi berikut.
+            PulangSehat adalah aplikasi monitoring pasien pasca rawat inap yang membantu keluarga dan caregiver
+            mencatat kondisi, jadwal obat, jadwal kontrol, dan riwayat pemulihan secara lebih terstruktur.
+          </p>
+          <section aria-labelledby="about-pulangsehat" className="rounded-2xl bg-slate-50 p-5">
+            <h2 id="about-pulangsehat" className="text-lg font-bold text-slate-900">
+              Tentang PulangSehat
+            </h2>
+            <p className="mt-2">
+              PulangSehat berfokus pada pencatatan dan pemantauan, bukan diagnosis atau pengobatan otomatis.
+              Informasi di aplikasi ditujukan untuk membantu pengguna menyiapkan catatan yang lebih rapi saat
+              berkonsultasi dengan tenaga kesehatan profesional.
+            </p>
+          </section>
+          <section aria-labelledby="support-contact">
+            <h2 id="support-contact" className="text-lg font-bold text-slate-900">
+              Kontak Dukungan
+            </h2>
+            <p className="mt-2">
+              Untuk dukungan aplikasi, pertanyaan privasi, permintaan penghapusan data, kerja sama, atau user testing,
+              hubungi kanal resmi berikut.
+            </p>
+          </section>
+          <p>
+            Jika Anda mengalami kondisi medis mendesak, segera hubungi layanan gawat darurat, dokter, atau fasilitas
+            kesehatan terdekat. PulangSehat bukan layanan gawat darurat.
           </p>
           <div className="space-y-3 rounded-2xl bg-slate-50 p-5">
             <a

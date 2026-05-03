@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
   description:
-    "Asisten digital pemulihan pasca-rawat inap. Scan label obat dengan AI, atur jadwal otomatis, dan pantau kepatuhan minum obat orang tua secara real-time bersama keluarga.",
+    "Aplikasi monitoring pasien pasca rawat inap untuk membantu keluarga mencatat kondisi, mengelola jadwal obat, dan meninjau pemulihan bersama caregiver.",
   keywords: [
     "PulangSehat",
     "pemulihan pasca rawat inap",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
     description:
-      "Asisten digital pemulihan pasca-rawat inap. Pantau kepatuhan minum obat orang tua secara real-time.",
+      "Aplikasi monitoring pasien pasca rawat inap untuk pencatatan kondisi, jadwal obat, dan koordinasi caregiver.",
     url: siteUrl,
     siteName: "PulangSehat",
     type: "website",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PulangSehat - Rawat Orang Tua Tanpa Cemas",
     description:
-      "Pantau jadwal obat, kondisi, dan pemulihan orang tua secara real-time bersama keluarga.",
+      "Aplikasi monitoring pasien pasca rawat inap untuk membantu keluarga mencatat kondisi dan jadwal obat.",
     images: [socialImage],
   },
   verification: googleSiteVerification
