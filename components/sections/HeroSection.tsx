@@ -25,17 +25,6 @@ export default function HeroSection() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center text-center">
-                {/* Badge
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/50 backdrop-blur-sm border border-slate-200 shadow-sm text-primary text-sm font-semibold mb-4"
-                >
-                    <Sparkles className="w-4 h-4" />
-                    <span>Didukung Teknologi AI MedGemma</span>
-                </motion.div> */}
-
                 {/* Headline */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -68,9 +57,9 @@ export default function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl mx-auto"
                 >
-                    Asisten digital pemulihan pasca-rawat inap. Scan label obat dengan
-                    AI, atur jadwal otomatis, dan pantau kepatuhan minum obat orang
-                    tua secara real-time bersama keluarga.
+                    Aplikasi monitoring pasien pasca rawat inap untuk membantu keluarga
+                    mencatat kondisi, mengelola jadwal obat, dan meninjau pemulihan
+                    bersama caregiver.
                 </motion.p>
 
                 {/* CTA Button */}
@@ -119,7 +108,7 @@ export default function HeroSection() {
                         </div>
                         <div className="text-left">
                             <p className="text-sm font-bold text-slate-900 leading-tight">Pantau Keluarga</p>
-                            <p className="text-[11px] text-slate-500 font-medium">Real-time update</p>
+                            <p className="text-[11px] text-slate-500 font-medium">Catatan terstruktur</p>
                         </div>
                     </motion.div>
 

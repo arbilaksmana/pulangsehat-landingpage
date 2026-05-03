@@ -11,7 +11,7 @@ const features = [
         icon: ScanLine,
         title: "Scan-to-Plan",
         description:
-            "Ubah label obat fisik jadi jadwal digital hanya dengan satu foto. Didukung teknologi AI MedGemma.",
+            "Bantu ubah instruksi obat menjadi draf jadwal digital yang perlu ditinjau dan divalidasi pengguna.",
         iconBg: "bg-primary",
         iconColor: "text-white",
         href: `/features/${featureDetails[0].slug}`,
@@ -20,7 +20,7 @@ const features = [
         icon: Users,
         title: "Family Sync",
         description:
-            "Satu pasien dipantau satu keluarga. Notifikasi real-time jika orang tua lupa minum obat.",
+            "Satu pasien dapat dipantau bersama keluarga melalui catatan, status, dan pengingat yang sama.",
         iconBg: "bg-primary",
         iconColor: "text-white",
         href: `/features/${featureDetails[1].slug}`,
@@ -38,7 +38,7 @@ const features = [
         icon: FileText,
         title: "Smart Medical Report",
         description:
-            "Download laporan kepatuhan PDF untuk dibawa saat kontrol ke dokter.",
+            "Siapkan ringkasan catatan kepatuhan dan kondisi untuk membantu diskusi saat kontrol.",
         iconBg: "bg-primary",
         iconColor: "text-white",
         href: `/features/${featureDetails[3].slug}`,
@@ -47,7 +47,7 @@ const features = [
 
 export default function FeaturesSection() {
     return (
-        <section id="fitur" className="py-24 lg:py-32 bg-gradient-to-b from-white via-primary/[0.04] to-white relative overflow-hidden">
+        <section id="fitur" className="py-24 lg:py-32 bg-gradient-to-b from-white via-primary/[0.04] to-white relative overflow-hidden scroll-mt-24 lg:scroll-mt-28">
             {/* Decorative gradient blobs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/[0.05] rounded-full blur-[150px]" />
@@ -68,7 +68,7 @@ export default function FeaturesSection() {
                         </span>
                     </h2>
                     <p className="text-lg text-slate-500 leading-relaxed">
-                        Fitur perawatan pasca-rawat inap yang dirancang sederhana namun powerful untuk seluruh keluarga.
+                        Fitur pencatatan dan pemantauan pasca-rawat inap yang dirancang sederhana untuk membantu keluarga.
                     </p>
                 </motion.div>
 

@@ -21,19 +21,19 @@ export const featureDetails: FeatureDetail[] = [
     title: "Scan-to-Plan",
     eyebrow: "Digitalisasi obat lebih cepat",
     description:
-      "Ubah label obat fisik jadi jadwal digital hanya dengan satu foto. Didukung teknologi AI MedGemma.",
+      "Bantu ubah instruksi obat menjadi draf jadwal digital yang perlu ditinjau dan divalidasi pengguna.",
     heroDescription:
       "Scan-to-Plan membantu keluarga mengubah instruksi obat yang tercecer di label, kemasan, dan catatan dokter menjadi jadwal digital yang lebih mudah dipantau bersama.",
     image: "/assets/fitur scan.png",
     imageAlt: "Fitur Scan-to-Plan PulangSehat",
     overview: [
       "Setelah pasien pulang dari rumah sakit, keluarga sering harus mengelola beberapa obat sekaligus dengan aturan minum yang berbeda-beda. Scan-to-Plan dirancang untuk mempercepat proses itu tanpa harus memasukkan semuanya secara manual.",
-      "Cukup arahkan kamera ke label obat atau instruksi yang dibawa pulang, lalu PulangSehat membantu mengubahnya menjadi rencana pemantauan yang lebih rapi untuk seluruh keluarga.",
+      "Cukup arahkan kamera ke label obat atau instruksi yang dibawa pulang, lalu PulangSehat membantu membuat draf rencana pemantauan yang perlu ditinjau keluarga sebelum digunakan.",
     ],
     benefits: [
       "Mengurangi input manual yang memakan waktu di hari-hari awal pemulihan",
-      "Membantu keluarga menyusun jadwal obat lebih cepat dan lebih konsisten",
-      "Menurunkan risiko salah baca dosis atau waktu minum antar caregiver",
+      "Membantu keluarga menyusun draf jadwal obat lebih cepat dan lebih konsisten",
+      "Mendorong caregiver meninjau ulang informasi obat dari sumber yang sama",
     ],
     howItWorks: [
       {
@@ -63,19 +63,19 @@ export const featureDetails: FeatureDetail[] = [
     title: "Family Sync",
     eyebrow: "Koordinasi caregiver tanpa miskomunikasi",
     description:
-      "Satu pasien dipantau satu keluarga. Notifikasi real-time jika orang tua lupa minum obat.",
+      "Satu pasien dapat dipantau bersama keluarga melalui catatan, status, dan pengingat yang sama.",
     heroDescription:
       "Family Sync memberi visibilitas yang sama ke semua anggota keluarga yang ikut terlibat, sehingga pemantauan obat dan kondisi harian tidak bertumpu pada satu orang saja.",
     image: "/assets/Family Sync.png",
     imageAlt: "Fitur Family Sync PulangSehat",
     overview: [
       "Dalam banyak keluarga, semua orang ingin membantu, tetapi informasi sering tersebar di chat, panggilan telepon, dan ingatan masing-masing. Family Sync menyatukan semuanya ke satu alur yang lebih jelas.",
-      "Dengan visibilitas yang sama untuk semua caregiver, keluarga bisa tahu siapa yang sudah memantau, siapa yang perlu follow-up, dan kapan intervensi dibutuhkan.",
+      "Dengan visibilitas yang sama untuk semua caregiver, keluarga bisa tahu siapa yang sudah memantau, siapa yang perlu follow-up, dan kapan perlu menghubungi tenaga kesehatan.",
     ],
     benefits: [
       "Mengurangi miskomunikasi antar anggota keluarga",
       "Membantu caregiver utama tidak merasa bekerja sendirian",
-      "Mendorong keputusan yang lebih cepat saat ada dosis terlewat atau kondisi berubah",
+      "Membantu keluarga merespons catatan dosis terlewat atau perubahan kondisi dengan lebih terstruktur",
     ],
     howItWorks: [
       {
@@ -105,7 +105,7 @@ export const featureDetails: FeatureDetail[] = [
     title: "Check-Up Reminder",
     eyebrow: "Kontrol ulang tidak lagi terlewat",
     description:
-      "Jangan sampai lupa kontrol ulang ke dokter. PulangSehat ingatkan jadwal kontrol Anda.",
+      "Bantu simpan dan ingatkan jadwal kontrol ulang sesuai arahan tenaga kesehatan.",
     heroDescription:
       "Check-Up Reminder membantu keluarga menjaga jadwal kontrol, pemeriksaan lanjutan, dan momen penting setelah pasien pulang dari rumah sakit.",
     image: "/assets/Mockup Home.png",
@@ -133,7 +133,7 @@ export const featureDetails: FeatureDetail[] = [
       {
         title: "Pantau ritme pemulihan",
         description:
-          "Kontrol yang konsisten membantu keluarga membaca progres pemulihan dengan lebih teratur dari minggu ke minggu.",
+      "Kontrol yang konsisten membantu keluarga meninjau catatan pemulihan dengan lebih teratur dari minggu ke minggu.",
       },
     ],
     useCases: [
@@ -147,9 +147,9 @@ export const featureDetails: FeatureDetail[] = [
     title: "Smart Medical Report",
     eyebrow: "Ringkasan yang siap dibawa ke dokter",
     description:
-      "Download laporan kepatuhan PDF untuk dibawa saat kontrol ke dokter.",
+      "Siapkan ringkasan catatan kepatuhan dan kondisi untuk membantu diskusi saat kontrol.",
     heroDescription:
-      "Smart Medical Report merangkum kepatuhan minum obat dan catatan penting keluarga menjadi laporan yang lebih mudah dibawa saat kontrol atau diskusi dengan tenaga kesehatan.",
+      "Smart Medical Report merangkum catatan minum obat dan informasi penting keluarga menjadi laporan yang lebih mudah dibawa saat kontrol atau diskusi dengan tenaga kesehatan.",
     image: "/assets/Report.png",
     imageAlt: "Fitur Smart Medical Report PulangSehat",
     overview: [
@@ -157,7 +157,7 @@ export const featureDetails: FeatureDetail[] = [
       "Smart Medical Report membantu mengubah catatan harian itu menjadi ringkasan yang lebih rapi dan siap digunakan dalam percakapan medis.",
     ],
     benefits: [
-      "Membantu dokter memahami kondisi pasien dengan konteks yang lebih lengkap",
+      "Membantu keluarga menyiapkan konteks pemantauan di rumah untuk dibahas dengan tenaga kesehatan",
       "Memudahkan keluarga membawa riwayat kepatuhan secara praktis",
       "Mengurangi ketergantungan pada ingatan saat sesi kontrol berlangsung singkat",
     ],
@@ -170,7 +170,7 @@ export const featureDetails: FeatureDetail[] = [
       {
         title: "Susun ringkasan otomatis",
         description:
-          "PulangSehat menyusun informasi penting menjadi format laporan yang lebih mudah dipahami.",
+          "PulangSehat menyusun informasi penting menjadi format ringkasan yang lebih mudah ditinjau.",
       },
       {
         title: "Bawa saat kontrol",
