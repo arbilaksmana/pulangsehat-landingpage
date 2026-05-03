@@ -10,21 +10,21 @@ const steps = [
         icon: Camera,
         title: "Scan Obat",
         description:
-            "Foto label obat dari rumah sakit. AI kami akan membaca dan mengekstrak informasi jadwal minum obat secara otomatis dalam hitungan detik.",
+            "Foto label obat dari rumah sakit untuk membantu membuat draf jadwal. Pengguna tetap perlu meninjau dan memastikan informasinya sesuai arahan tenaga kesehatan.",
         image: "/assets/fitur scan.png",
     },
     {
         icon: UserPlus,
         title: "Undang Keluarga",
         description:
-            "Tambahkan anggota keluarga ke dalam akun pasien. Semua bisa memantau dan menerima notifikasi bersama secara real-time.",
+            "Tambahkan anggota keluarga ke dalam akun pasien agar semua caregiver dapat melihat catatan dan pengingat yang sama.",
         image: "/assets/Family Sync.png",
     },
     {
         icon: CheckCircle,
-        title: "Pantau & Tenang",
+        title: "Catat & Pantau",
         description:
-            "Terima notifikasi real-time. Pastikan orang tua minum obat tepat waktu. Jalani aktivitas tanpa cemas setiap hari.",
+            "Gunakan pengingat dan riwayat untuk membantu memantau kepatuhan obat serta perubahan kondisi dari hari ke hari.",
         image: "/assets/riwayat caregiver.png",
     },
 ];
@@ -33,7 +33,7 @@ export default function HowItWorksSection() {
     const [activeStep, setActiveStep] = useState(2);
 
     return (
-        <section id="cara-kerja" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <section id="cara-kerja" className="py-24 lg:py-32 bg-white relative overflow-hidden scroll-mt-24 lg:scroll-mt-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 {/* Section Header */}
                 <motion.div
@@ -47,7 +47,7 @@ export default function HowItWorksSection() {
                         Cara Kerja PulangSehat
                     </h2>
                     <p className="text-lg text-slate-500 leading-relaxed">
-                        Tidak perlu setup rumit. Langsung gunakan PulangSehat dalam hitungan menit.
+                        Mulai dari pencatatan jadwal, validasi informasi, lalu pantau riwayat pasien bersama keluarga.
                     </p>
                 </motion.div>
 
@@ -62,13 +62,15 @@ export default function HowItWorksSection() {
                     {steps.map((step, index) => {
                         const isActive = index === activeStep;
                         return (
-                            <div
+                            <button
+                                type="button"
                                 key={index}
+                                onClick={() => setActiveStep(index)}
+                                aria-pressed={isActive}
                                 className={`rounded-3xl p-6 lg:p-8 cursor-pointer transition-all duration-500 flex flex-col overflow-hidden ${isActive
-                                    ? "bg-primary/5 border-2 border-primary/15"
-                                    : "bg-slate-50 border-2 border-transparent hover:border-slate-200"
-                                    }`}
-                                style={{ height: isActive ? "800px" : "440px" }}
+                                    ? "min-h-[560px] bg-primary/5 border-2 border-primary/15 md:h-[800px]"
+                                    : "min-h-[104px] bg-slate-50 border-2 border-transparent hover:border-slate-200 md:h-[440px]"
+                                    } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary text-left`}
                                 onMouseEnter={() => setActiveStep(index)}
                             >
                                 {/* Icon + Title */}
@@ -92,7 +94,7 @@ export default function HowItWorksSection() {
                                 </div>
 
                                 {/* App Preview Image */}
-                                <div className={`flex-1 rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm mt-auto transition-all duration-500 ${isActive ? "opacity-100" : "opacity-60"
+                                <div className={`flex-1 rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm mt-auto transition-all duration-500 ${isActive ? "block opacity-100" : "hidden opacity-60 md:block"
                                     }`}>
                                     {/* Browser Chrome / Window Bar */}
                                     <div className="flex items-center gap-1.5 px-4 py-3 border-b border-slate-100 bg-slate-50/50">
@@ -111,7 +113,7 @@ export default function HowItWorksSection() {
                                         />
                                     </div>
                                 </div>
-                            </div>
+                            </button>
                         );
                     })}
                 </motion.div>
