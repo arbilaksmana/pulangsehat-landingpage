@@ -46,7 +46,7 @@ export default function ProblemSection() {
     const active = painPoints[activeIndex];
 
     return (
-        <section id="masalah" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <section id="masalah" className="py-24 lg:py-32 bg-white relative overflow-hidden scroll-mt-24 lg:scroll-mt-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
                 {/* Section Header */}

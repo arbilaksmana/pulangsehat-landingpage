@@ -7,7 +7,7 @@ import { CTA_LINKS, trackCtaEvent } from "@/lib/tracking";
 
 export default function CTASection() {
     return (
-        <section id="user-testing" className="relative overflow-hidden py-24 lg:py-32">
+        <section id="user-testing" className="relative overflow-hidden py-24 lg:py-32 scroll-mt-24 lg:scroll-mt-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
